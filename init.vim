@@ -46,6 +46,7 @@ set ignorecase
 set smartcase
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'gruvbox-community/gruvbox'
@@ -73,9 +74,11 @@ set background=dark
 
 lua require('dcruz/telescope')
 lua require('dcruz/lsp')
+lua require('dcruz/treesitter')
 
 "lua << EOF
 "require'lspconfig'.volar.setup{}
 "EOF
 nnoremap <C-p> :Telescope find_files<Cr>
+nnoremap <C-b> :Telescope buffers<Cr>
 
