@@ -45,10 +45,12 @@ set mouse=a
 set ignorecase
 set smartcase
 
+set signcolumn=number
+
 call plug#begin('~/.config/nvim/plugged')
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'gruvbox-community/gruvbox'
 " Telescope requires plenary to function
 Plug 'nvim-lua/plenary.nvim'
@@ -75,6 +77,7 @@ set background=dark
 lua require('dcruz/telescope')
 lua require('dcruz/lsp')
 lua require('dcruz/treesitter')
+lua require('dcruz/gitsigns')
 
 "lua << EOF
 "require'lspconfig'.volar.setup{}
