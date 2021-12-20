@@ -48,6 +48,7 @@ set smartcase
 set signcolumn=number
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'github/copilot.vim'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -67,6 +68,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " declare your color scheme
@@ -84,4 +86,5 @@ lua require('dcruz/gitsigns')
 "EOF
 nnoremap <C-p> :Telescope find_files<Cr>
 nnoremap <C-b> :Telescope buffers<Cr>
+nnoremap <C-g> :Telescope live_grep<Cr>
 
