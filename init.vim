@@ -48,6 +48,11 @@ set smartcase
 set signcolumn=number
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'branch': 'release/0.x'
+  \ }
+Plug 'preservim/nerdtree'
 Plug 'github/copilot.vim'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
@@ -87,4 +92,13 @@ lua require('dcruz/gitsigns')
 nnoremap <C-p> :Telescope find_files<Cr>
 nnoremap <C-b> :Telescope buffers<Cr>
 nnoremap <C-g> :Telescope live_grep<Cr>
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
+
+
+" Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
