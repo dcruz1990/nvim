@@ -45,13 +45,12 @@ set mouse=a
 set ignorecase
 set smartcase
 
+set hlsearch
+
 set signcolumn=number
 
 call plug#begin('~/.config/nvim/plugged')
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install --frozen-lockfile --production',
-  \ 'branch': 'release/0.x'
-  \ }
+Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'preservim/nerdtree'
 Plug 'github/copilot.vim'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -98,6 +97,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 
+autocmd BufWritePre * execute ':lua vim.lsp.buf.formatting()'
 
 " Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
 autocmd StdinReadPre * let s:std_in=1

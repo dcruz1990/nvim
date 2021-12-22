@@ -6,6 +6,9 @@ local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     local opts = { noremap=true, silent=true }
 
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+    
     buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -35,6 +38,11 @@ for _, lsp in ipairs(servers) do
         on_attach = on_attach,
     }
 end
+
+local null_ls = require("null-ls")
+
+null_ls.setup({ sources = { null_ls.builtins.formatting.prettier }, capabilities = capabilities, on_attach = on_attach })
+
 
 -- nvim-cmp
 local cmp = require('cmp')
