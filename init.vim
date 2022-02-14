@@ -50,13 +50,15 @@ set hlsearch
 set signcolumn=number
 
 call plug#begin('~/.config/nvim/plugged')
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+Plug 'Mofiqul/dracula.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'preservim/nerdtree'
 Plug 'github/copilot.vim'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'gruvbox-community/gruvbox'
+"Plug 'gruvbox-community/gruvbox'"
 " Telescope requires plenary to function
 Plug 'nvim-lua/plenary.nvim'
 " The main Telescope plugin
@@ -73,10 +75,12 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 call plug#end()
 
 " declare your color scheme
-colorscheme gruvbox
+"colorscheme gruvbox"
+colorscheme dracula
 " Use this for dark color schemes
 set background=dark
 
@@ -97,8 +101,11 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 
-autocmd BufWritePre * execute ':lua vim.lsp.buf.formatting()'
+autocmd BufWritePre * execute ':Prettier'
 
 " Start NERDTree, unless a file or session is specified, eg. vim -S session_file.vim.
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') && v:this_session == '' | NERDTree | endif
+
+
+
