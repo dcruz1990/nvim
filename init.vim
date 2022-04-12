@@ -5,15 +5,15 @@ syntax on
 set termguicolors
 
 " number of spaces in a <Tab>
-set tabstop=4
-set softtabstop=4
+set tabstop=2
+set softtabstop=2
 set expandtab
 
 " enable autoindents
 set smartindent
 
 " number of spaces used for autoindents
-set shiftwidth=4
+set shiftwidth=2
 
 " adds line numbers
 set number
@@ -55,7 +55,7 @@ Plug 'Mofiqul/dracula.nvim'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'preservim/nerdtree'
 Plug 'github/copilot.vim'
-Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+"Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'yaegassy/coc-volar', {'do': 'yarn install --frozen-lockfile'}
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'gruvbox-community/gruvbox'"
@@ -76,6 +76,9 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'yuezk/vim-js'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 " declare your color scheme
@@ -86,7 +89,7 @@ set background=dark
 
 lua require('dcruz/telescope')
 lua require('dcruz/lsp')
-lua require('dcruz/treesitter')
+"lua require('dcruz/treesitter')
 lua require('dcruz/gitsigns')
 
 "lua << EOF
