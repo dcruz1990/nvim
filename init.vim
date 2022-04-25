@@ -49,6 +49,8 @@ set hlsearch
 
 set signcolumn=number
 
+set clipboard=unnamedplus,unnamed
+
 call plug#begin('~/.config/nvim/plugged')
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'Mofiqul/dracula.nvim'
